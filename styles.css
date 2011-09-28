@@ -1,8 +1,22 @@
 #pullToRefresh{
-	background: #333;
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	height: 40px;
+	width: 100%;
+	background: rgba(0,0,0,0.4);
+	z-index: 10000;
+}
+
+#pullToRefresh.fixed{
+	display: block !important;
 }
 
 #pullToRefresh h1{
 	color: #fff;
+	line-height: 40px;
+	font-size: 16px;
 	text-align: center;
+	font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
