@@ -2,7 +2,8 @@
    "content_scripts": [ {
       "js": [ "jquery-1.6.4.min.js", "pull_to_refresh.js" ],
       "css": [ "styles.css" ],
-      "matches": [ "<all_urls>" ]
+      "matches": [ "<all_urls>" ],
+      "exclude_matches": [ "*://*.twitter.com/*" ]
    } ],
    "description": "Pull to refresh",
    "name": "Pull to Refresh",

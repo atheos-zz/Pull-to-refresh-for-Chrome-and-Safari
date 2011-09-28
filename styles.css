@@ -9,9 +9,7 @@
 	z-index: 10000;
 }
 
-#pullToRefresh.fixed{
-	display: block !important;
-}
+#pullToRefresh.fixed{ display: block !important; }
 
 #pullToRefresh h1{
 	color: #fff;
