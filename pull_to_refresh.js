@@ -4,36 +4,6 @@
         uid1 = 'D' + (+new Date()),
         uid2 = 'D' + (+new Date() + 1);
  
-    special.scrollstart = {
-        setup: function() {
- 
-            var timer,
-                handler =  function(evt) {
- 
-                    var _self = this,
-                        _args = arguments;
- 
-                    if (timer) {
-                        clearTimeout(timer);
-                    } else {
-                        evt.type = 'scrollstart';
-                        jQuery.event.handle.apply(_self, _args);
-                    }
- 
-                    timer = setTimeout( function(){
-                        timer = null;
-                    }, special.scrollstop.latency);
- 
-                };
- 
-            jQuery(this).bind('scroll', handler).data(uid1, handler);
- 
-        },
-        teardown: function(){
-            jQuery(this).unbind( 'scroll', jQuery(this).data(uid1) );
-        }
-    };
- 
     special.scrollstop = {
         latency: 300,
         setup: function() {
@@ -75,11 +45,15 @@ var pully = {
 	refreshPossible: false,
 	
 	init: function() {
-		// Inject the div
-		$('body').prepend('<div id="pullToRefresh"><h1></h1></div>');
-		// listener for scrolling
-		$(window).bind('scroll', pully.scrollStart);
-		$(window).bind('scrollstop', pully.scrollStop);
+		var current_url = document.URL;
+		if( current_url.search( 'twitter.com' ) == -1 )
+		{
+			// Inject the div
+			$('body').prepend('<div id="pullToRefresh"><div class="wrap"><span class="icon">&nbsp;</span><h1></h1></div></div>');
+			// listener for scrolling
+			$(window).bind('scroll', pully.scrollStart);
+			$(window).bind('scrollstop', pully.scrollStop);
+		}
 	},
 	
 	scrollStart: function() {
@@ -88,6 +62,7 @@ var pully = {
 		if (pully.position <= -30)
 		{
 			$('#pullToRefresh h1').text('Release to refresh');
+			$('#pullToRefresh .icon').addClass('release');
 			pully.refreshPossible = true;
 		}
 		else if (pully.position <= -5 && pully.refreshPossible === false)
@@ -107,8 +82,9 @@ var pully = {
 		if (pully.position >= 0 && pully.refreshPossible === true)
 		{
 			$('#pullToRefresh').addClass('fixed');
-			$('#pullToRefresh h1').text('Reloading');
+			$('#pullToRefresh h1').text('Reloading…');
 			$(window).scrollTop(0);
+			
 			setTimeout(function(){
 				window.location.reload();
 			}, 1000);
@@ -119,6 +95,7 @@ var pully = {
 	slideDownMenu: function() {
 		$('#pullToRefresh').slideDown(200);
 		$('#pullToRefresh h1').text('Pull to refresh');
+		$('#pullToRefresh .icon').removeClass('release');
 	},
 	
 	slideUpMenu: function() {

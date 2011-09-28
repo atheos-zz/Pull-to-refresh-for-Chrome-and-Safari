@@ -4,17 +4,71 @@
 	top: 0px;
 	left: 0px;
 	height: 40px;
-	width: 100%;
-	background: rgba(0,0,0,0.4);
+	width: 40%;
+	margin: 0 30%;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background: -webkit-linear-gradient(bottom, rgba(20,20,20,0.9) 5%, rgba(64,64,64,0.9) 53%);
 	z-index: 10000;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 #pullToRefresh.fixed{ display: block !important; }
 
+#pullToRefresh .wrap{
+	width: 180px;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+
 #pullToRefresh h1{
+	width: 160px;
+	display: block;
 	color: #fff;
-	line-height: 40px;
+	line-height: 20px;
 	font-size: 16px;
-	text-align: center;
 	font-family: 'Helvetica Neue', Helvetica, sans-serif;
+	text-shadow: 1px 1px 0px rgba(0,0,0,0.8);
+}
+
+#pullToRefresh .icon{
+	background: url('chrome-extension://geokkficcihbbndnlcblplaapjeibacl/whiteArrow.png');
+	float: right;
+	display: block;
+	width: 20px;
+	height: 20px;
+	color: #fff;
+	font-size: 20px;
+	line-height: 20px;
+	text-align: center;
+	border-radius: 20px;
+	margin-left: 20px;
+	-webkit-transition: all .3s ease-in-out;
+}
+
+#pullToRefresh.fixed .icon{
+	-webkit-transition: none;
+}
+
+#pullToRefresh .icon.release{
+	-webkit-transform: rotate(180deg);
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to { 
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+#pullToRefresh.fixed .icon{
+	background: url('chrome-extension://geokkficcihbbndnlcblplaapjeibacl/spinner.png');
+	text-indent: -10000px;
+	-webkit-animation-name:             rotate; 
+    -webkit-animation-duration:         0.5s; 
+    -webkit-animation-iteration-count:  infinite;
+    -webkit-transition-timing-function: linear;
+	-webkit-transform: rotate(0deg);
 }
