@@ -32,7 +32,7 @@
 }
 
 #pullToRefresh .icon{
-	background: url('chrome-extension://oogcjnkanpdockccbnaibelhochcidok/whiteArrow.png');
+	background: url('chrome-extension://lpjlpldmbikhdbmhhpippfhoifdhbbdh/whiteArrow.png');
 	float: right;
 	display: block;
 	width: 20px;
@@ -64,7 +64,7 @@
 }
 
 #pullToRefresh.fixed .icon{
-	background: url('chrome-extension://oogcjnkanpdockccbnaibelhochcidok/spinner.png');
+	background: url('chrome-extension://lpjlpldmbikhdbmhhpippfhoifdhbbdh/spinner.png');
 	text-indent: -10000px;
 	-webkit-animation-name:             rotate; 
     -webkit-animation-duration:         0.5s; 
