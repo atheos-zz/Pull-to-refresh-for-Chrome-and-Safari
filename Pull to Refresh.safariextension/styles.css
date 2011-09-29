@@ -1,0 +1,74 @@
+#pullToRefresh{
+	display: none;
+	position: fixed !important;
+	top: 0px !important;
+	left: 0px !important;
+	height: 40px !important;
+	width: 40% !important;
+	margin: 0 30% !important;
+	border-bottom-left-radius: 10px !important;
+	border-bottom-right-radius: 10px !important;
+	background: -webkit-linear-gradient(bottom, rgba(20,20,20,0.9) 5%, rgba(64,64,64,0.9) 53%) !important;
+	z-index: 10000 !important;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2) !important;
+}
+
+#pullToRefresh.fixed{ display: block !important; }
+
+#pullToRefresh .wrap{
+	width: 180px !important;
+	margin: 0 auto !important;
+	padding: 10px 0 !important;
+}
+
+#pullToRefresh #pulltorefreshheader{
+	width: 160px !important;
+	display: block !important;
+	color: #fff !important;
+	line-height: 20px !important;
+	font-size: 16px !important;
+	font-family: 'Helvetica Neue', Helvetica, sans-serif !important;
+	text-shadow: 1px 1px 0px rgba(0,0,0,0.8) !important;
+}
+
+#pullToRefresh .icon{
+	background: url('whiteArrow.png') !important;
+	float: right !important;
+	display: block !important;
+	width: 20px !important;
+	height: 20px !important;
+	color: #fff !important;
+	font-size: 20px  !important;
+	line-height: 20px !important;
+	text-align: center !important;
+	border-radius: 20px !important;
+	margin-left: 20px !important;
+	-webkit-transition: all .3s ease-in-out;
+}
+
+#pullToRefresh.fixed .icon{
+	-webkit-transition: none;
+}
+
+#pullToRefresh .icon.release{
+	-webkit-transform: rotate(180deg);
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to { 
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+#pullToRefresh.fixed .icon{
+	background: url('spinner.png') !important;
+	text-indent: -10000px !important;
+	-webkit-animation-name:             rotate; 
+    -webkit-animation-duration:         0.5s; 
+    -webkit-animation-iteration-count:  infinite;
+    -webkit-transition-timing-function: linear;
+	-webkit-transform: rotate(0deg);
+}
