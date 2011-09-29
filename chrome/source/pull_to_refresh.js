@@ -49,7 +49,7 @@ var pully = {
 		if( current_url.search( 'twitter.com' ) == -1 )
 		{
 			// Inject the div
-			$('body').prepend('<div id="pullToRefresh"><div class="wrap"><span class="icon">&nbsp;</span><h1></h1></div></div>');
+			$('body').prepend('<div id="pullToRefresh"><div class="wrap"><span class="icon">&nbsp;</span><div id="pullyText"></div></div></div>');
 			// listener for scrolling
 			$(window).bind('scroll', pully.scrollStart);
 			$(window).bind('scrollstop', pully.scrollStop);
@@ -61,7 +61,7 @@ var pully = {
 		
 		if (pully.position <= -30)
 		{
-			$('#pullToRefresh h1').text('Release to refresh');
+			$('#pullToRefresh #pullyText').text('Release to refresh');
 			$('#pullToRefresh .icon').addClass('release');
 			pully.refreshPossible = true;
 		}
@@ -82,7 +82,7 @@ var pully = {
 		if (pully.position >= 0 && pully.refreshPossible === true)
 		{
 			$('#pullToRefresh').addClass('fixed');
-			$('#pullToRefresh h1').text('Reloading…');
+			$('#pullToRefresh #pullyText').text('Reloading…');
 			$(window).scrollTop(0);
 			
 			setTimeout(function(){
@@ -94,7 +94,7 @@ var pully = {
 	
 	slideDownMenu: function() {
 		$('#pullToRefresh').slideDown(200);
-		$('#pullToRefresh h1').text('Pull to refresh');
+		$('#pullToRefresh #pullyText').text('Pull to refresh');
 		$('#pullToRefresh .icon').removeClass('release');
 	},
 	

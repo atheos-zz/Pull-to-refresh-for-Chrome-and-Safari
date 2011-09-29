@@ -21,7 +21,7 @@
 	padding: 10px 0;
 }
 
-#pullToRefresh h1{
+#pullToRefresh #pullyText{
 	width: 160px;
 	display: block;
 	color: #fff;
